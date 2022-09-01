@@ -1,0 +1,152 @@
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git
+$ mkdir learn_git
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git
+$ cd learn_git
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git
+$ touch third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git
+$ git init
+Initialized empty Git repository in C:/Users/Rmhed/Desktop/gomycode/Git/learn_git/.git/
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git add third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git commit -m "adding third.txt"
+[master (root-commit) 4886d8c] adding third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git log
+commit 4886d8c89a4259906c7b7e88e6ad8ca987df43ba (HEAD -> master)
+Author: Ramy-Hedhli <Rmhedhly@gmail.com>
+Date:   Thu Sep 1 17:19:40 2022 +0100
+
+    adding third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ touch "fourth.txt"
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git add fourth.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git commit -m "adding fourth.txt"
+[master f248cdf] adding fourth.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 fourth.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ rm third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git add .
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git commit -m "removing third.txt"
+[master de2c856] removing third.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git log
+commit de2c856a41fcf937d67dd8a06301792792170ed6 (HEAD -> master)
+Author: Ramy-Hedhli <Rmhedhly@gmail.com>
+Date:   Thu Sep 1 17:26:01 2022 +0100
+
+    removing third.txt
+
+commit f248cdf8ae27674b623858c2ed6b7750d0ae04f8
+Author: Ramy-Hedhli <Rmhedhly@gmail.com>
+Date:   Thu Sep 1 17:22:12 2022 +0100
+
+    adding fourth.txt
+
+commit 4886d8c89a4259906c7b7e88e6ad8ca987df43ba
+Author: Ramy-Hedhli <Rmhedhly@gmail.com>
+Date:   Thu Sep 1 17:19:40 2022 +0100
+
+    adding third.txt
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git config --global core.page "cat"
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=true
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.name=Ramy-Hedhli
+user.email=Rmhedhly@gmail.com
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+core.page=cat
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+
+Rmhed@Ramy MINGW64 ~/Desktop/gomycode/Git/learn_git (master)
+$ git config --global
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    --worktree            use per-worktree config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-pattern]
+    --get-all             get all values: key [value-pattern]
+    --get-regexp          get values for regexp: name-regex [value-pattern]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value-pattern]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-pattern]
+    --unset-all           remove all matches: name [value-pattern]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    --fixed-value         use string equality when comparing values to 'value-pattern'
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    -t, --type <type>     value is given this type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --bool-or-str         value is --bool or string
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+    --show-scope          show scope of config (worktree, local, global, system, command)
+    --default <value>     with --get, use default value when missing entry
